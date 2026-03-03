@@ -1,0 +1,14 @@
+[
+  {
+    "nome": "Ana",
+    "idade": 14,
+    "nivel_conhecimento": "iniciante",
+    "estilo_aprendizado": "visual"
+  },
+  {
+    "nome": "Carlos",
+    "idade": 22,
+    "nivel_conhecimento": "intermediário",
+    "estilo_aprendizado": "cinestésico"
+  }
+]
