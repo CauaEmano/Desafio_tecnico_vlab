@@ -2,13 +2,13 @@
   {
     "nome": "Ana",
     "idade": 14,
-    "nivel_conhecimento": "iniciante",
-    "estilo_aprendizado": "visual"
+    "nivel": "iniciante",
+    "estilo": "visual"
   },
   {
     "nome": "Carlos",
     "idade": 22,
-    "nivel_conhecimento": "intermediário",
-    "estilo_aprendizado": "cinestésico"
+    "nivel": "intermediário",
+    "estilo": "cinestésico"
   }
 ]

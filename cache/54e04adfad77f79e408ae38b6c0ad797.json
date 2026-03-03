@@ -1,0 +1,6 @@
+{
+   "aula": {
+      "tema": "A Regra da Cadeia: Engrenagens em Movimento",
+      "explicacao": "Para dominarmos a Regra da Cadeia, Carlos, imagine que estamos lidando com um sistema de engrenagens: uma interna e outra externa. O raciocínio consiste em isolar o movimento da camada de fora, mantendo a de dentro intacta, e depois aplicar a força da derivada na parte interna, multiplicando os resultados. Visualizamos essa operação como o ato de desmontar uma peça por camadas, onde o movimento total é a combinação das velocidades de cada componente que você toca."
+   }
+}
