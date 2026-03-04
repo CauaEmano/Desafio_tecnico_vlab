@@ -1,7 +1,7 @@
 [
   {
     "nome": "Ana",
-    "idade": 14,
+    "idade": 55,
     "nivel": "iniciante",
     "estilo": "visual"
   },
@@ -10,5 +10,23 @@
     "idade": 22,
     "nivel": "intermediário",
     "estilo": "cinestésico"
+  },
+  {
+    "nome": "Elane",
+    "idade": 19,
+    "nivel": "avançado",
+    "estilo": "visual"
+  },
+  {
+    "nome": "Guilherme",
+    "idade": 19,
+    "nivel": "intermediário",
+    "estilo": "auditivo"
+  },
+  {
+    "nome": "Nicolas",
+    "idade": 11,
+    "nivel": "iniciante",
+    "estilo": "leitura-escrita"
   }
 ]

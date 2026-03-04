@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor de IA - Educação</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .form-group { margin-bottom: 15px; }
+        label { font-weight: bold; display: block; margin-bottom: 5px; }
+        select, input { width: 100%; max-width: 400px; padding: 8px; }
+        button { padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        pre { background-color: #f4f4f4; padding: 15px; border-radius: 5px; white-space: pre-wrap; word-wrap: break-word; }
+    </style>
+</head>
+<body>
+
+    <h1>Gerador de Conteúdo Educativo 🧠</h1>
+
+    <div id="formulario">
+        <div class="form-group">
+            <label for="versao">Versão do Prompt:</label>
+            <select id="versao">
+                <option value="v1">Versão 1 (Chain-of-Thought)</option>
+                <option value="v2">Versão 2 (Tutor Socrático)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="indice_aluno">Aluno:</label>
+            <select id="indice_aluno">
+                <option value="0">Ana (Iniciante, Visual)</option>
+                <option value="1">Carlos (Intermediário, Cinestésico)</option>
+                <option value="2">Elane (Avançado, Visual)</option>
+                <option value="3">Guilherme (Intermediário, Auditivo)</option>
+                <option value="4">Nicolas (Iniciante, Leitura-escrita)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="topico">Tópico a ser estudado:</label>
+            <input type="text" id="topico" placeholder="Ex: Loops em Python, Fotossíntese..." required>
+        </div>
+
+        <div class="form-group">
+            <label for="tipo_conteudo">Tipo de Conteúdo:</label>
+            <select id="tipo_conteudo">
+                <option value="explicacao">Explicação Conceitual</option>
+                <option value="exemplos">Exemplos Práticos</option>
+                <option value="reflexao">Perguntas de Reflexão</option>
+                <option value="resumo">Resumo Visual</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="precisao">Nível de Temperatura:</label>
+            <select id="precisao">
+                <option value="Preciso">Preciso</option>
+                <option value="Equilibrado">Equilibrado</option>
+                <option value="Criativo">Criativo</option>
+            </select>
+        </div>
+
+        <button onclick="enviarRequisicao()">Gerar Conteúdo</button>
+    </div>
+
+    <h2>Resultado:</h2>
+    <div id="resultado">O conteúdo gerado aparecerá aqui...</div>
+
+    <script>
+        async function enviarRequisicao() {
+            const divResultado = document.getElementById('resultado');
+            divResultado.innerHTML = "<p>Pensando e gerando conteúdo... ⏳</p>";
+
+            const dados = {
+                versao: document.getElementById('versao').value,
+                indice_aluno: parseInt(document.getElementById('indice_aluno').value),
+                topico: document.getElementById('topico').value,
+                tipo_conteudo: document.getElementById('tipo_conteudo').value,
+                precisao: document.getElementById('precisao').value
+            };
+
+            try {
+                const resposta = await axios.post('/gerar', dados);
+                const obj = resposta.data; // O JSON que veio do Python
+                let htmlGerado = "";
+
+                // Verifica qual tipo de conteúdo o Python devolveu para formatar corretamente
+                if (obj.aula) {
+                    htmlGerado = `<h3>Tema: ${obj.aula.tema}</h3><p>${obj.aula.explicacao}</p>`;
+                } else if (obj.exemplos) {
+                    htmlGerado = `<h3>Exemplos Práticos</h3><ul>`;
+                    obj.exemplos.forEach(exemplo => htmlGerado += `<li>${exemplo}</li>`);
+                    htmlGerado += `</ul>`;
+                } else if (obj.perguntas) {
+                    htmlGerado = `<h3>Perguntas de Reflexão</h3><ul>`;
+                    obj.perguntas.forEach(pergunta => htmlGerado += `<li>${pergunta}</li>`);
+                    htmlGerado += `</ul>`;
+                } else if (obj.resumo) {
+                    htmlGerado = `<h3>Resumo</h3><pre>${obj.resumo}</pre>`;
+                } else {
+                    htmlGerado = `<pre>${JSON.stringify(obj, null, 2)}</pre>`;
+                }
+
+                divResultado.innerHTML = htmlGerado;
+
+            } catch (erro) {
+                console.error(erro);
+                divResultado.innerHTML = "<p style='color: red;'>Erro ao gerar conteúdo. Veja o terminal do Flask.</p>";
+            }
+        }
+    </script>
+
+</body>
+</html>

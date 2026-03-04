@@ -1,6 +1,0 @@
-{
-   "aula": {
-      "tema": "Introdução às Proposições Lógicas",
-      "explicacao": "Para nossa primeira aula, Ana, vamos usar o raciocínio passo a passo para entender o que é uma proposição. \n\n1. **A Identificação**: Imagine que cada frase que falamos é como uma lâmpada. Algumas frases têm a 'energia' da afirmação, ou seja, declaram algo sobre o mundo.\n2. **O Teste Visual**: Olhe para a frase 'O sol brilha'. Você consegue visualizar se isso é um fato ou não? Se sim, essa frase é uma Proposição.\n3. **O Valor Binário**: Assim como um interruptor, uma proposição só pode ter dois estados: ou ela está ligada (Verdadeira) ou desligada (Falsa). Não existe um 'meio acessa'.\n4. **Conclusão**: Se uma frase não pode ser julgada como V ou F (como uma pergunta ou um comando), ela não é uma proposição. \n\nEntender isso é como organizar suas ferramentas antes de começar a construir algo incrível!"
-   }
-}
