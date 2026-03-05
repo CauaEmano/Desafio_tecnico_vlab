@@ -84,10 +84,10 @@
 
             try {
                 const resposta = await axios.post('/gerar', dados);
-                const obj = resposta.data; // O JSON que veio do Python
+                const obj = resposta.data; //O JSON que veio do Python
                 let htmlGerado = "";
 
-                // Verifica qual tipo de conteúdo o Python devolveu para formatar corretamente
+                //Verifica qual tipo de conteúdo o Python devolveu para formatar corretamente
                 if (obj.aula) {
                     htmlGerado = `<h3>Tema: ${obj.aula.tema}</h3><p>${obj.aula.explicacao}</p>`;
                 } else if (obj.exemplos) {

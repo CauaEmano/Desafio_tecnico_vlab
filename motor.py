@@ -57,8 +57,9 @@ class MotorIA: #Classe principal
             model='gemini-3-flash-preview',
             contents=self.construir_prompt(self.alunos[indice_aluno], topico, tipo_conteudo, modo),
             config= {
-                'temperature': valor
-            }
+                'temperature': valor,
+                'response_mime_type': 'application/json'
+            },
         )
 
         resposta = response.text.replace('```json', '').replace('```', '') #Garantindo limpeza da resposta
